@@ -411,7 +411,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _forecasts_list_component_html_ngResource__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./forecasts-list.component.html?ngResource */ 8738);
 /* harmony import */ var _forecasts_list_component_css_ngResource__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./forecasts-list.component.css?ngResource */ 271);
 /* harmony import */ var _forecasts_list_component_css_ngResource__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_forecasts_list_component_css_ngResource__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 1699);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 1699);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ 7947);
+/* harmony import */ var app_services_weather_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/services/weather.service */ 1125);
 var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
   var c = arguments.length,
     r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -422,8 +424,12 @@ var __decorate = undefined && undefined.__decorate || function (decorators, targ
 
 
 
+
+
 let ForecastsListComponent = class ForecastsListComponent {
   constructor() {
+    this.weatherService = (0,_angular_core__WEBPACK_IMPORTED_MODULE_3__.inject)(app_services_weather_service__WEBPACK_IMPORTED_MODULE_2__.WeatherService);
+    this.route = (0,_angular_core__WEBPACK_IMPORTED_MODULE_3__.inject)(_angular_router__WEBPACK_IMPORTED_MODULE_4__.ActivatedRoute);
     this.route.params.subscribe(params => {
       this.zipcode = params['zipcode'];
       this.weatherService.getForecast(this.zipcode).subscribe(data => this.forecast = data);
@@ -431,7 +437,7 @@ let ForecastsListComponent = class ForecastsListComponent {
   }
   static #_ = this.ctorParameters = () => [];
 };
-ForecastsListComponent = __decorate([(0,_angular_core__WEBPACK_IMPORTED_MODULE_2__.Component)({
+ForecastsListComponent = __decorate([(0,_angular_core__WEBPACK_IMPORTED_MODULE_3__.Component)({
   selector: 'app-forecasts-list',
   template: _forecasts_list_component_html_ngResource__WEBPACK_IMPORTED_MODULE_0__,
   styles: [(_forecasts_list_component_css_ngResource__WEBPACK_IMPORTED_MODULE_1___default())]
